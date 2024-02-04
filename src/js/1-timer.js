@@ -11,6 +11,7 @@ const minutesData = document.querySelector('[data-minutes]');
 const secondsData = document.querySelector('[data-seconds]');
 let timeInterval;
 let userSelectedDate;
+startBtn.disabled = true;
 
 const options = {
   enableTime: true,
@@ -28,7 +29,6 @@ const options = {
     } else {
       startBtn.disabled = false;
     }
-    updateTimerDisplay();
   },
 };
 
@@ -50,6 +50,9 @@ startBtn.addEventListener('click', startTimer);
 function startTimer() {
   inputData.disabled = true;
   startBtn.disabled = true;
+
+  updateTimerDisplay();
+
   timeInterval = setInterval(() => {
     updateTimerDisplay();
   }, 1000);
